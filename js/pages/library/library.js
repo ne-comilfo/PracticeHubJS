@@ -1,3 +1,3 @@
-const loadHeader = require("../../services/load-header.js");
+import loadHeader from "../../services/load-header";
 
 loadHeader();

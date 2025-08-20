@@ -1,4 +1,4 @@
-const openBurgerMenu = require('./burger-menu');
+import openBurgerMenu from "./burger-menu";
 async function loadHeader() {
     const res = await fetch('../../../index.html');
     const html = await res.text();
@@ -11,4 +11,4 @@ async function loadHeader() {
     openBurgerMenu();
 }
 
-module.exports = loadHeader;
+export default loadHeader;

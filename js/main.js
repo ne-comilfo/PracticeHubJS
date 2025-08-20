@@ -1,3 +1,3 @@
-const openBurgerMenu = require("./services/burger-menu.js");
+import openBurgerMenu from './services/burger-menu'
 
 openBurgerMenu();

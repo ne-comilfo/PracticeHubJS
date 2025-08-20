@@ -25,4 +25,4 @@ function openBurgerMenu() {
     })
 }
 
-module.exports = openBurgerMenu;
+export default openBurgerMenu;
