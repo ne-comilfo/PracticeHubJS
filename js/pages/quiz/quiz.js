@@ -1,1 +1,3 @@
-console.log('Quiz page');
+const loadHeader = require("../../services/load-header.js");
+
+loadHeader();

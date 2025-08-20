@@ -3,7 +3,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
 
   entry: {
     main: './js/main.js',
@@ -14,25 +14,26 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true
   },
 
   watch: true,
   devtool: 'source-map',
 
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    }
+  },
+
   module: {
     rules: [
       {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        test: /\.js$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [['@babel/preset-env', {
-              debug: true,
-              corejs: 3,
-              useBuiltIns: "usage"
-            }]]
+            presets: ['@babel/preset-env']
           }
         }
       }
