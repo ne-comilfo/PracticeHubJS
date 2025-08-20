@@ -1,1 +1,3 @@
-console.log('Home page');
+const openBurgerMenu = require("./services/burger-menu.js");
+
+openBurgerMenu();
