@@ -45,7 +45,11 @@ let activeDotIndex = 0;
 function slideImg(index) {
     sliderInner.style.transform = `translateX(-${offset}px)`;
     currentPage.textContent = index;
+    dotsByHand[activeDotIndex].style.opacity = 0.3;
+    activeDotIndex = index - 1;
+    dotsByHand[index - 1].style.opacity = 1;
 }
+
 
 dotsByHand.forEach(dot => {
     dot.addEventListener('click', (e) => {
@@ -53,9 +57,6 @@ dotsByHand.forEach(dot => {
         index = parseInt(target.getAttribute('data-slide-to'));
         offset = (index - 1) * parseInt(width);
         slideImg(index);
-        dotsByHand[activeDotIndex].style.opacity = 0.5;
-        activeDotIndex = index - 1;
-        dot.style.opacity = 1;
     })
 })
 
