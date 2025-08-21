@@ -1,9 +1,104 @@
 .content {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer {
     text-align: center;
     padding: 20px;
-    box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.25)
+    box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.25);
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.carousel {
+    position: relative;
+    width: fit-content;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.carousel-controls i {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    flex-direction: row;
+    transition: 0.5s all;
+    position: relative;
+}
+
+.carousel-item {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item__description {
+    margin-top: 10px;
+}
+
+.carousel-item img {
+    height: 350px;
+}
+
+.number-page,
+.total-page {
+    font-size: 20px;
+}
+
+.footer span {
+    margin-right: 20px
+}
+
+.carousel-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 30px;
+    margin-right: 40px;
+}
+
+.dot {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 6px;
+    margin-right: 3px;
+    margin-left: 3px;
+    cursor: pointer;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: .5;
+    transition: opacity .6s ease;
 }

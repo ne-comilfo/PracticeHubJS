@@ -20,6 +20,13 @@ body {
     position: relative;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
 .tab-header img {
     height: 40px;
     width: auto;
