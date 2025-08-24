@@ -1,0 +1,180 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 80px);
+}
+
+.library-field {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.library-info {
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.library-field {
+    width: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+.library-search {
+    background-color: white;
+    border-radius: 5px;
+    width: 95.4%;
+    height: 70px;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.library-search input {
+    width: 80%;
+    height: 32px;
+    padding-left: 5px;
+}
+
+.library-search button {
+    height: 37px;
+}
+
+.library-search input:focus {
+    outline: none;
+}
+
+.library-films {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+}
+
+.film-card,
+.film-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-evenly;
+    width: 100%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5px;
+}
+
+.library-add-form {
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding-left: 20px;
+    width: 97%;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+
+.library-add-form form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.add-form-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.add-form-item h4 {
+    min-width: 150px;
+}
+
+.add-form-item input,
+.add-form-item select {
+    flex: 1;
+    max-width: 300px;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+.library-add-form button {
+    align-self: flex-end;
+    padding: 5px 5px;
+    cursor: pointer;
+    margin: 10px 10px;
+}
+
+.film-title,
+.film-year,
+.film-rating,
+.film-rating-goida,
+.film-status,
+.film-genre {
+    width: 110px;
+}
+
+.film-rating {
+    text-indent: 24px;
+}
+
+#filters-form {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;    
+    gap: 10px 20px;          
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#filters-form label {
+    min-width: 80px;
+    font-weight: bold;
+}
+
+#filters-form select,
+#filters-form input {
+    height: 25px;
+
+    box-sizing: border-box;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.filter-group-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
