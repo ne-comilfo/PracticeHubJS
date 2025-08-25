@@ -58,7 +58,8 @@ html {
     height: 37px;
 }
 
-.library-search input:focus {
+.library-search input:focus,
+.add-form-item input:focus {
     outline: none;
 }
 
@@ -145,8 +146,8 @@ html {
 #filters-form {
     box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap;    
-    gap: 10px 20px;          
+    flex-wrap: wrap;
+    gap: 10px 20px;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 15px;
@@ -177,4 +178,13 @@ html {
     flex-direction: row;
     align-items: center;
     gap: 10px;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.film-card select {
+    border: none;
 }

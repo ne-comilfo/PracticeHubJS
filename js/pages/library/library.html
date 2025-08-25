@@ -22,7 +22,7 @@
             </div>
 
             <div class="modal" id="filters-modal">
-                <div class="modal-content">
+                <div class="modal-content" hidden>
                     <h2>Фильтры</h2>
                     <form id="filters-form">
                         <div class="filter-group-item">
@@ -85,55 +85,41 @@
                     <h3 class="film-status">Статус</h3>
                     <h3 class="film-genre">Жанр</h3>
                 </li>
-                <li class="film-card">
-                    <h3 class="film-title">Пчеловод</h3>
-                    <p class="film-year">2024</p>
-                    <p class="film-rating">5</p>
-                    <p class="film-status">Просмотрено</p>
-                    <p class="film-genre">Фэнтези</p>
-                </li>
-
-                <li class="film-card">
-                    <h3 class="film-title">Антиутопия</h3>
-                    <p class="film-year">2021</p>
-                    <p class="film-rating">4</p>
-                    <p class="film-status">Смотрю</p>
-                    <p class="film-genre">Антиутопия</p>
-                </li>
             </ol>
 
             <h2>Добавьте новый фильм</h2>
 
             <div class="library-add-form">
-                <form>
-                    <div class="add-form-item">
+                <form id="add-form">
+                    <div class="add-form-item" >
                         <h4>Название</h4>
-                        <input type="text" placeholder="Введите название фильма">
+                        <input type="text" placeholder="Например: Джентельмены" name="title" required>
                     </div>
 
                     <div class="add-form-item">
                         <h4>Оценка фильма</h4>
-                        <select id="form-mark">
+                        <select id="form-mark" name="mark">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="5" selected>5</option>
                         </select>
                     </div>
 
                     <div class="add-form-item">
                         <h4>Выберите жанр</h4>
-                        <select id="form-genre">
+                        <select id="form-genre" name="genre">
                             <option value="Роман">Роман</option>
                             <option value="Фэнтези">Фэнтези</option>
                             <option value="Антиутопия">Антиутопия</option>
+                            <option value="Боевик" selected>Боевик</option>
                         </select>
                     </div>
 
                     <div class="add-form-item">
                         <h4>Выберите статус</h4>
-                        <select id="progress">
+                        <select id="progress" name="progress">
                             <option value="Просмотрено">Просмотрено</option>
                             <option value="Смотрю">Смотрю</option>
                             <option value="В планах">В планах</option>
@@ -142,7 +128,7 @@
 
                     <div class="add-form-item">
                         <h4>Год издания</h4>
-                        <input type="number" placeholder="2014">
+                        <input type="number" placeholder="Например: 2019" name="year" required>
                     </div>
 
                     <button type='submit'>Добавить</button>
