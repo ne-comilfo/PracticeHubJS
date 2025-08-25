@@ -25,39 +25,55 @@
                 <div class="modal-content" hidden>
                     <h2>Фильтры</h2>
                     <form id="filters-form">
-                        <div class="filter-group-item">
-                            <label for="status">Статус</label>
-                            <select id="status" name="status">
-                                <option value="all">Все</option>
-                                <option value="Просмотрено">Просмотрено</option>
-                                <option value="Смотрю">Смотрю</option>
-                                <option value="В планах">В планах</option>
-                            </select>
+                        <!-- Статус -->
+                        <div class="filter-group-item filter-checkboxes">
+                            <label>Статус:</label>
+                            <label>
+                                <input type="checkbox" name="status" value="Просмотрено">
+                                Просмотрено
+                            </label>
+                            <label>
+                                <input type="checkbox" name="status" value="Смотрю">
+                                Смотрю
+                            </label>
+                            <label>
+                                <input type="checkbox" name="status" value="В планах">
+                                В планах
+                            </label>
                         </div>
 
-                        <div class="filter-group-item">
-                            <label for="rating">Оценка</label>
-                            <select id='rating' name="rating">
-                                <option value="all">Любая</option>
-                                <option value="5">5</option>
-                                <option value="4">4</option>
-                                <option value="3">3</option>
-                                <option value="2">2</option>
-                                <option value="1">1</option>
-                            </select>
+                        <!-- Оценка -->
+                        <div class="filter-group-item filter-checkboxes">
+                            <label>Оценка:</label>
+                            <label><input type="checkbox" name="rating" value="5"> 5</label>
+                            <label><input type="checkbox" name="rating" value="4"> 4</label>
+                            <label><input type="checkbox" name="rating" value="3"> 3</label>
+                            <label><input type="checkbox" name="rating" value="2"> 2</label>
+                            <label><input type="checkbox" name="rating" value="1"> 1</label>
                         </div>
 
-                        <div class="filter-group-item">
-                            <label for="filter-genre">Жанры</label>
-                            <select id="filter-genre" name="filter-genre">
-                                <option value="all">Любые</option>
-                                <option value="Роман">Роман</option>
-                                <option value="Фэнтези">Фэнтези</option>
-                                <option value="Антиутопия">Антиутопия</option>
-                                <option value="Боевик">Боевик</option>
-                            </select>
+                        <!-- Жанры -->
+                        <div class="filter-group-item filter-checkboxes">
+                            <label>Жанры:</label>
+                            <label>
+                                <input type="checkbox" name="genre" value="Роман">
+                                Роман
+                            </label>
+                            <label>
+                                <input type="checkbox" name="genre" value="Фэнтези">
+                                Фэнтези
+                            </label>
+                            <label>
+                                <input type="checkbox" name="genre" value="Антиутопия">
+                                Антиутопия
+                            </label>
+                            <label>
+                                <input type="checkbox" name="genre" value="Боевик">
+                                Боевик
+                            </label>
                         </div>
 
+                        <!-- Годы -->
                         <div class="filter-group-item">
                             <label for="year-from">Год издания:</label>
                             <div class="filter-group">
@@ -68,12 +84,14 @@
                             </div>
                         </div>
 
+                        <!-- Кнопки -->
                         <div class="modal-actions">
-                            <button type='button' id="reset-filters">Сбросить</button>
+                            <button type="button" id="reset-filters">Сбросить</button>
                             <button type="submit" id="apply-filers">Применить</button>
                             <button type="button" id="close-filters">Закрыть</button>
                         </div>
                     </form>
+
                 </div>
             </div>
 
@@ -91,7 +109,7 @@
 
             <div class="library-add-form">
                 <form id="add-form">
-                    <div class="add-form-item" >
+                    <div class="add-form-item">
                         <h4>Название</h4>
                         <input type="text" placeholder="Например: Джентельмены" name="title" required>
                     </div>
