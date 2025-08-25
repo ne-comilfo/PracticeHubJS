@@ -1,36 +1,27 @@
+let index = +localStorage.getItem('index') || 0;
 
+function addForm(data, filmsField, renderFilms) {
+    index++;
+    data.index = index;
 
-function addForm({ title, mark, year, genre, progress, index }, filmsField) {
-    const progressData = ['В планах', 'Смотрю', 'Просмотрено'];
-    const progressInput = [];
-    progressData.forEach(item => {
-        if (progress !== item) {
-            progressInput.push(`<option value="${item}">${item}</option>`);
-        } else {
-            progressInput.push(`<option value="${item}" selected>${item}</option>`);
-        }
-    })
-    const filmCard = `
-        <li class="film-card" data-id='${index}'>
-                    <h3 class="film-title">${checkLength(capitalize(title))}</h3>
-                    <p class="film-year">${year}</p>
-                    <p class="film-rating">${mark}</p>
-                    <select class="film-status">
-                        ${progressInput.join('\n')}
-                    </select>
-                    <p class="film-genre">${genre}</p>
-                </li>
-    `;
-
-    filmsField.insertAdjacentHTML('beforeend', filmCard);
+    localStorage.setItem('index', index);
+    const films = JSON.parse(localStorage.getItem('films')) || [];
+    films.push(data);
+    localStorage.setItem('films', JSON.stringify(films));
+    renderFilms(data, filmsField);
 }
 
-function checkLength(string) {
-    return string.length >= 11 ? string.slice(0, 10) + '...' : string;
+function changeFilmProgress(id, newProgress) {
+    const films = JSON.parse(localStorage.getItem('films')) || [];
+    films.forEach(film => {
+        if (film.index == id) film.progress = newProgress;
+    });
+    localStorage.setItem('films', JSON.stringify(films));
 }
 
-function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+function uploadFilms(filmsField, renderFilms) {
+    const films = JSON.parse(localStorage.getItem('films')) || [];
+    films.forEach(film => renderFilms(film, filmsField));
 }
 
-export default addForm;
+export { addForm, uploadFilms, changeFilmProgress };

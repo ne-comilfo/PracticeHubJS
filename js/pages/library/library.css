@@ -76,6 +76,7 @@ html {
 
 .film-card,
 .film-card-header {
+
     display: flex;
     align-items: center;
     gap: 10px;
@@ -136,7 +137,12 @@ html {
 .film-rating-goida,
 .film-status,
 .film-genre {
-    width: 110px;
+    width: 115px;
+    height: 20px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .film-rating {

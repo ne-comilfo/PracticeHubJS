@@ -17,7 +17,7 @@
                 <h1>Фильмотека</h1>
             </div>
             <div class="library-search">
-                <input type="text" placeholder="Find film...">
+                <input name='search' type="text" placeholder="Find film...">
                 <button id="open-filters">Фильтры</button>
             </div>
 
@@ -26,9 +26,9 @@
                     <h2>Фильтры</h2>
                     <form id="filters-form">
                         <div class="filter-group-item">
-                            <label>Статус</label>
-                            <select name="status">
-                                <option value="">Все</option>
+                            <label for="status">Статус</label>
+                            <select id="status" name="status">
+                                <option value="all">Все</option>
                                 <option value="Просмотрено">Просмотрено</option>
                                 <option value="Смотрю">Смотрю</option>
                                 <option value="В планах">В планах</option>
@@ -36,9 +36,9 @@
                         </div>
 
                         <div class="filter-group-item">
-                            <label>Оценка</label>
-                            <select name="rating">
-                                <option value="">Любая</option>
+                            <label for="rating">Оценка</label>
+                            <select id='rating' name="rating">
+                                <option value="all">Любая</option>
                                 <option value="5">5</option>
                                 <option value="4">4</option>
                                 <option value="3">3</option>
@@ -48,15 +48,15 @@
                         </div>
 
                         <div class="filter-group-item">
-                            <label>Жанры</label>
-                            <select name="filter-genre">
+                            <label for="filter-genre">Жанры</label>
+                            <select id="filter-genre" name="filter-genre">
+                                <option value="all">Любые</option>
                                 <option value="Роман">Роман</option>
                                 <option value="Фэнтези">Фэнтези</option>
                                 <option value="Антиутопия">Антиутопия</option>
+                                <option value="Боевик">Боевик</option>
                             </select>
                         </div>
-
-
 
                         <div class="filter-group-item">
                             <label for="year-from">Год издания:</label>
@@ -66,11 +66,11 @@
                                 <span class="range-separator">–</span>
                                 <input type="number" id="year-to" name="year-to" placeholder="До" min="1900" max="2025">
                             </div>
-
                         </div>
 
                         <div class="modal-actions">
-                            <button type="submit">Применить</button>
+                            <button type='button' id="reset-filters">Сбросить</button>
+                            <button type="submit" id="apply-filers">Применить</button>
                             <button type="button" id="close-filters">Закрыть</button>
                         </div>
                     </form>
