@@ -17,6 +17,7 @@ function renderFilms({ title, mark, year, genre, progress, index }, filmsField) 
             ${progressInput.join('\n')}
             </select>
             <p class="film-genre">${genre}</p>
+            <i class="fa-solid fa-trash"></i>
         </li>
     `;
 

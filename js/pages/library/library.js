@@ -20,6 +20,35 @@ form.addEventListener('submit', (e) => {
     form.reset();
 });
 
+filmsField.addEventListener('click', (e) => {
+    if (e.target.classList.contains('fa-trash')) {
+        const card = e.target.closest('.film-card');
+        const id = +card.getAttribute('data-id');
+        let films = JSON.parse(localStorage.getItem('films')) || [];
+
+        const filmIndex = films.findIndex(film => +film.index === id);
+        console.log(id)
+        if (filmIndex !== -1) {
+            films.splice(filmIndex, 1);
+            localStorage.setItem('films', JSON.stringify(films));
+        }
+
+        filmsField.innerHTML = `
+        <li class="film-card-header">
+            <h3 class="film-title">Название</h3>
+            <h3 class="film-year">Год</h3>
+            <h3 class="film-rating-goida">Оценка</h3>
+            <h3 class="film-status">Статус</h3>
+            <h3 class="film-genre">Жанр</h3>
+        </li>`;
+        films.forEach((film, i) => {
+            renderFilms({ ...film}, filmsField);
+        });
+    }
+});
+
+
+
 document.addEventListener('change', (e) => {
     if (e.target.classList.contains('film-status')) {
         const card = e.target.closest('.film-card');

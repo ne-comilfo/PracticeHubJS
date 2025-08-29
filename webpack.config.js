@@ -8,7 +8,11 @@ module.exports = {
   entry: {
     main: './js/main.js',
     library: './js/pages/library/library.js',
-    quiz: './js/pages/quiz/quiz.js'
+    quiz: './js/pages/quiz/quiz.js',
+    game: './js/pages/game/game.js',
+    video: './js/pages/video-service/video-service.js',
+    password: './js/pages/password/password.js',
+    english: './js/pages/learn-english/learn-english.js',
   },
 
   output: {
