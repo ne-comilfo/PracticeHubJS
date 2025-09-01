@@ -13,6 +13,7 @@ module.exports = {
     video: './js/pages/video-service/video-service.js',
     password: './js/pages/password/password.js',
     english: './js/pages/learn-english/learn-english.js',
+    dragdrop: './js/pages/drag&drop/drag&drop.js' 
   },
 
   output: {
