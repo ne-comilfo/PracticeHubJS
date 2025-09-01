@@ -1,0 +1,86 @@
+.page-header {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section-wrapper,
+.section-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.section-wrapper .section-inner:last-child hr {
+    display: none;
+}
+
+.section-inner hr,
+.section hr {
+    align-self: flex-start;
+    width: 100%; 
+    margin: 10px 0;
+}
+
+.section {
+    height: 200px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+.section-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.section-card {
+    transition: all 0.3s;
+    width: 250px;
+    box-sizing: border-box;
+    height: 170px;
+    border-radius: 20px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.section-card:hover {
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+.section-card__header {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Карточки */
+
+.question-card {
+    height: 70vh;
+    width: 400px;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.15);
+    margin-top: 160px;
+    border: 0.1px black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}

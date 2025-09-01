@@ -1,0 +1,166 @@
+{
+    "animals": [
+        {
+            "word": "cat",
+            "translation": "кот"
+        },
+        {
+            "word": "dog",
+            "translation": "собака"
+        },
+        {
+            "word": "lion",
+            "translation": "лев"
+        },
+        {
+            "word": "tiger",
+            "translation": "тигр"
+        },
+        {
+            "word": "elephant",
+            "translation": "слон"
+        },
+        {
+            "word": "monkey",
+            "translation": "обезьяна"
+        },
+        {
+            "word": "bear",
+            "translation": "медведь"
+        },
+        {
+            "word": "wolf",
+            "translation": "волк"
+        },
+        {
+            "word": "fox",
+            "translation": "лиса"
+        },
+        {
+            "word": "rabbit",
+            "translation": "кролик"
+        },
+        {
+            "word": "horse",
+            "translation": "лошадь"
+        },
+        {
+            "word": "cow",
+            "translation": "корова"
+        },
+        {
+            "word": "sheep",
+            "translation": "овца"
+        },
+        {
+            "word": "goat",
+            "translation": "козёл"
+        },
+        {
+            "word": "pig",
+            "translation": "свинья"
+        },
+        {
+            "word": "chicken",
+            "translation": "курица"
+        },
+        {
+            "word": "duck",
+            "translation": "утка"
+        },
+        {
+            "word": "bird",
+            "translation": "птица"
+        },
+        {
+            "word": "fish",
+            "translation": "рыба"
+        },
+        {
+            "word": "frog",
+            "translation": "лягушка"
+        }
+    ],
+    "food": [
+        {
+            "word": "apple",
+            "translation": "яблоко"
+        },
+        {
+            "word": "banana",
+            "translation": "банан"
+        },
+        {
+            "word": "bread",
+            "translation": "хлеб"
+        },
+        {
+            "word": "milk",
+            "translation": "молоко"
+        },
+        {
+            "word": "cheese",
+            "translation": "сыр"
+        },
+        {
+            "word": "butter",
+            "translation": "масло"
+        },
+        {
+            "word": "egg",
+            "translation": "яйцо"
+        },
+        {
+            "word": "meat",
+            "translation": "мясо"
+        },
+        {
+            "word": "chicken",
+            "translation": "курица"
+        },
+        {
+            "word": "fish",
+            "translation": "рыба"
+        },
+        {
+            "word": "rice",
+            "translation": "рис"
+        },
+        {
+            "word": "pasta",
+            "translation": "макароны"
+        },
+        {
+            "word": "soup",
+            "translation": "суп"
+        },
+        {
+            "word": "salad",
+            "translation": "салат"
+        },
+        {
+            "word": "tomato",
+            "translation": "помидор"
+        },
+        {
+            "word": "potato",
+            "translation": "картофель"
+        },
+        {
+            "word": "onion",
+            "translation": "лук"
+        },
+        {
+            "word": "carrot",
+            "translation": "морковь"
+        },
+        {
+            "word": "pepper",
+            "translation": "перец"
+        },
+        {
+            "word": "cucumber",
+            "translation": "огурец"
+        }
+    ]
+}
