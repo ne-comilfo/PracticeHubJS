@@ -4,10 +4,16 @@ loadHeader();
 
 const pageContent = document.querySelector('.content');
 
+const topics = JSON.parse(localStorage.getItem('topics')) || {};
+for (let topic in topics) {
+    document.querySelector(`[data-topic=${topic}] .current`).innerHTML = `<b>${topics[topic]} из 20</b>`
+}
+
 let prevContent = '';
 let quizData = [];
 let index = -1;
 let correctAnswers = 0;
+let topic = '';
 
 async function getData(topic) {
     const response = await fetch(`http://localhost:3000/${topic}`);
@@ -15,15 +21,25 @@ async function getData(topic) {
     return await response.json();
 }
 
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function rememberAnsw(correctAnswers) {
+    const obj = JSON.parse(localStorage.getItem('topics')) || {};
+    obj[topic] = correctAnswers;
+    localStorage.setItem('topics', JSON.stringify(obj));
+}
+
 function renderStartScreen() {
     pageContent.textContent = '';
-    pageContent.style.cssText = 'display: flex; flex-direction: column; align-items: center; justify-content: center;';
+    pageContent.style.cssText = 'display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;';
 
     const questionCard = document.createElement('div');
     questionCard.classList.add('question-card');
     questionCard.innerHTML = `
         <h2>Готовы проверить свои знания?</h2>
-        <p>Вам будут предложены различные слова на русском языке, ваша задача написать правильный перевод на английский. Будьте внимательны, нажатие на кнопку "Посмотреть перевод" расценивается как <b>неправильный</b> ответ!</p>
+        <p>Вам будут предложены различные слова на русском языке, ваша задача написать правильный перевод на английский. <b>Будьте внимательны</b>, нажатие на кнопку "Посмотреть перевод" расценивается как <b>неправильный</b> ответ!</p>
         <div class='buttons'>               
             <button type='button' class='next-btn'>Далее</button>
         </div>
@@ -41,14 +57,14 @@ function renderQuestion(dflt = null) {
     let textContentNext = index === 19 ? 'Сохранить ответы' : 'Далее';
 
     const questionCard = document.querySelector('.question-card'),
-        input = `<input type='text' placeholder='Например, овощ' class='input-card'/>`,
-        str = `<p>${dflt}</p>`;
+        input = `<input type='text' placeholder='Напишите перевод' class='input-card'/>`,
+        str = `<p class='translate'>${dflt}</p>`;
     questionCard.innerHTML = `
-        <h2>${quizData[index].translation}</h2>
+        <h2>${(index + 1) + '. ' + capitalize(quizData[index].translation)}</h2>
         ${dflt == null ? input : str}
         <div class='buttons'>
-            <button type='button' class='translate-btn'>Посмотреть перевод</button>
             <button type='button' class='submit-btn'>Подтвердить</button>
+            <button type='button' class='translate-btn'>Посмотреть перевод</button>          
             <button type='button' class='next-btn' hidden>${textContentNext}</button>
         </div>
     `;
@@ -58,8 +74,10 @@ function renderResults() {
     const questionCard = document.querySelector('.question-card');
     questionCard.innerHTML = `
         <h2>Ваши результаты</h2>
-        <div>${correctAnswers} из 20</div>
+        <div class='user-answers'><b>${correctAnswers} из 20</b></div>
+        <span></span>
     `;
+    rememberAnsw(correctAnswers);
 }
 
 function handleNext() {
@@ -68,7 +86,7 @@ function handleNext() {
 }
 
 function handleTranslate() {
-    renderQuestion(quizData[index].word);
+    renderQuestion(capitalize(quizData[index].word));
     const questionCard = document.querySelector('.question-card');
     const nextBtn = questionCard.querySelector('.next-btn');
     const submitBtn = questionCard.querySelector('.submit-btn');
@@ -108,7 +126,7 @@ function goBack() {
     pageContent.innerHTML = prevContent;
 
     if (index === 20) {
-        document.querySelector('.current').textContent = `${correctAnswers} из 20`;
+        document.querySelector(`[data-topic=${topic}] .current`).innerHTML = `<b>${correctAnswers} из 20</b>`;
     }
 
     quizData = [];
@@ -118,15 +136,12 @@ function goBack() {
 
 pageContent.addEventListener('click', async (e) => {
     const target = e.target;
-
-    if (target.classList.contains('section-card')) {
-        const topic = target.getAttribute('data-topic');
+    if (target.closest('.section-card')?.classList.contains('section-card')) {
+        topic = target.closest('.section-card').getAttribute('data-topic');
         prevContent = pageContent.innerHTML;
-
         quizData = await getData(topic);
         index = -1;
         correctAnswers = 0;
-
         renderStartScreen();
     }
 

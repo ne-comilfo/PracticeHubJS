@@ -26,12 +26,12 @@
 .section-inner hr,
 .section hr {
     align-self: flex-start;
-    width: 100%; 
+    width: 100%;
     margin: 10px 0;
 }
 
 .section {
-    height: 200px;
+    height: 240px;
     width: auto;
     display: flex;
     flex-direction: row;
@@ -49,7 +49,7 @@
     transition: all 0.3s;
     width: 250px;
     box-sizing: border-box;
-    height: 170px;
+    height: 230px;
     border-radius: 20px;
     background-color: antiquewhite;
     display: flex;
@@ -57,6 +57,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    padding: 5px;
 }
 
 .section-card:hover {
@@ -83,4 +84,45 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+}
+
+.input-card {
+    outline: none;
+    width: 70%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px black solid;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.translate-btn,
+.submit-btn,
+.next-btn,
+.back-btn {
+    width: 170px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0.1px black solid;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+
+.translate,
+.user-answers {
+    font-size: 20px;
+}
+
+.section-card img {
+    height: 150px;
+    width: 90%;
+}
+
+.section-card__description {
+    text-align: center;
 }
