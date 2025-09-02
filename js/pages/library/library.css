@@ -136,10 +136,11 @@ html {
 }
 
 .film-card i {
-  font-size: 15px;
-  color: red; /* для теста */
-  cursor: pointer;
-  
+    font-size: 15px;
+    color: red;
+    /* для теста */
+    cursor: pointer;
+
 }
 
 
@@ -233,4 +234,9 @@ select:focus {
 
 .film-card select {
     border: none;
+}
+
+.library-search button,
+.modal-actions button {
+    cursor: pointer;
 }

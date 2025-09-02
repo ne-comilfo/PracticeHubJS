@@ -36,6 +36,7 @@ a {
 }
 
 .burger {
+    cursor: pointer;
     right: 0;
     position: relative;
     transition: all 0.3s;
