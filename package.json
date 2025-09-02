@@ -22,6 +22,7 @@
     "webpack-dev-server": "^5.2.2"
   },
   "dependencies": {
-    "core-js": "^3.45.1"
+    "core-js": "^3.45.1",
+    "zxcvbn": "^4.4.2"
   }
 }

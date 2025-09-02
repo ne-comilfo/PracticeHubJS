@@ -17,7 +17,7 @@ let topic = '';
 
 async function getData(topic) {
     const response = await fetch(`http://localhost:3000/${topic}`);
-    if (!response.ok) throw new Error('Ошибка получения данных, повторите попытку позже');
+    if (!response.ok) throw new Error('Запустите в консоли json-server');
     return await response.json();
 }
 
