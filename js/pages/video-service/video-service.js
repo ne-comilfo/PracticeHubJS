@@ -64,17 +64,18 @@ document.addEventListener('keydown', (e) => {
 })
 
 videoPlayer.addEventListener('timeupdate', () => {
-    const time = videoPlayer.currentTime / videoPlayer.duration * 100;;
+    const time = videoPlayer.currentTime / videoPlayer.duration * 100;
     inputRange.value = time;
     let minutes = ''+Math.floor(videoPlayer.currentTime / 60);
     let seconds = ''+Math.floor(videoPlayer.currentTime % 60);
     minutes = minutes.padStart(2, '0');
     seconds = seconds.padStart(2, '0');
     currentTime.innerHTML = `${minutes}:${seconds}`;
-    inputRange.style.background = `linear-gradient(to right, #ff5722 0%, #ff5722 ${time}%, #ddd ${time}%, #ddd 100%)`;
 });
 
 
-inputRange.addEventListener('change', () => {
+inputRange.addEventListener('input', () => {
     videoPlayer.currentTime = (inputRange.value * videoPlayer.duration) / 100;
+    const time = videoPlayer.currentTime / videoPlayer.duration * 100;
+    inputRange.style.background = `linear-gradient(to right, #ff5722 0%, #ff5722 ${time}%, #ddd ${time}%, #ddd 100%)`;
 })
