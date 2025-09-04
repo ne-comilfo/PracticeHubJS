@@ -8,9 +8,27 @@
     <link rel="stylesheet" href="./video-service.css">
     <link rel="stylesheet" href="../../../css/burger-menu-styles.css">
     <link rel="icon" href="../../../img/home/video.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
 </head>
 
 <body>
+    <div class="content">
+        <h2>Видео плеер</h2>
+        <div class="player-wrapper">
+            <div class="player">
+                <video src="../../../video/test.mp4" class="video"></video>
+                <div class="controls">
+                    <div class="controls__play-pause"><i class="fas fa-play"></i></div>
+                    <div class="progress-bar">
+                        <div class="controls__progress"><input type="range" value="0"></div>
+                        <div class="controls__time">00:00</div>
+                    </div>
+                    <div class="controls__screen"><i class="fas fa-expand"></i></div>
+                </div>
+            </div>
+        </div>
+        <h4>Здесь реализован собственный видео плеер со своим интерфейсом</h4>
+    </div>
     <script src="../../../dist/video.bundle.js"></script>
 </body>
 
