@@ -1,6 +1,29 @@
 .content {
     margin-top: 80px;
     height: calc(100vh - 80px);
+    text-align: center;
+}
+
+.start-btn {
+    width: 140px;
+    height: 40px;
+    font-size: 20px;
+    background-color: antiquewhite;
+    border: 0.5px black solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 10vh;
+    cursor: pointer;
+}
+
+.button-reset {
+    width: 140px;
+    height: 40px;
+    background-color: antiquewhite;
+    border: 0.5px black solid;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
 }
 
 .game__display {
@@ -46,9 +69,38 @@
     background-color: rgb(246, 53, 53);
 }
 
+.choose {
+    background-color: grey;
+}
+
+.none {
+    background-color: none;
+}
+
+.mistake,
+.correct,
+.choose,
+.none {
+    transition: all 0.3s;
+}
+
 .game__word {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
     margin-bottom: 10px;
     font-size: 25px;
+}
+
+.game__word-letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+    border: 0.5px black solid;
+    border-radius: 5px;
 }
 
 .game__message {
@@ -57,6 +109,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 40px;
 }
 
 .game__image {
@@ -74,4 +127,19 @@
     border-radius: 5px;
     height: 30px;
     width: 100px;
+}
+
+svg {
+    transition: all 0.3s;
+}
+
+.no-select {
+    user-select: none;
+    /* запрещает выделение */
+    -webkit-user-select: none;
+    /* для Safari/Chrome */
+    -moz-user-select: none;
+    /* для Firefox */
+    -ms-user-select: none;
+    /* для IE/Edge */
 }
