@@ -11,6 +11,50 @@
 </head>
 
 <body>
+    <div class="content">
+        <div class="game__display">
+            <h1 class="game__name">Виселица</h1>
+            <div class="game__image">
+                <svg id="hangman" width="200" height="250" viewBox="0 0 200 250">
+                    <!-- 1. Основание + табуретка-->
+                    <line id="base" x1="38" y1="230" x2="150" y2="230" stroke="#000" stroke-width="4"/>
+
+                    <rect id="stool-seat" x="80" y="191" width="80" height="20" fill="#654321" />
+                    <line id="stool-leg-left" x1="100" y1="211" x2="100" y2="228" stroke="#654321" stroke-width="3" />
+                    <line id="stool-leg-right" x1="140" y1="211" x2="140" y2="228" stroke="#654321" stroke-width="3" />
+                    <!-- 2. Столб + Перекладина-->
+                    <line id="pole" x1="40" y1="230" x2="40" y2="20" stroke="#000" stroke-width="4" />
+                    <line id="beam" x1="40" y1="20" x2="120" y2="20" stroke="#000" stroke-width="4" />
+
+                    <!-- 3. Верёвка -->
+                    <line id="rope" x1="120" y1="20" x2="120" y2="50" stroke="#000" stroke-width="2" />
+
+                    <!-- 4. Голова -->
+                    <circle id="head" cx="120" cy="70" r="20" stroke="#000" stroke-width="3" fill="none" />
+
+                    <!-- 5. Тело -->
+                    <line id="body" x1="120" y1="90" x2="120" y2="150" stroke="#000" stroke-width="3" />
+
+                    <!-- 6. Руки -->
+                    <line id="arm-left" x1="120" y1="100" x2="90" y2="130" stroke="#000" stroke-width="3" />
+                    <line id="arm-right" x1="120" y1="100" x2="150" y2="130" stroke="#000" stroke-width="3" />
+
+                    <!-- 7. Ноги -->
+                    <line id="leg-left" x1="120" y1="150" x2="90" y2="190" stroke="#000" stroke-width="3" />
+                    <line id="leg-right" x1="120" y1="150" x2="150" y2="190" stroke="#000" stroke-width="3" />
+                </svg>
+            </div>
+            <div class="game__word">
+                _ _ _ _ _
+            </div>
+            <div class="game__message">
+                <div>Тут будет сообщение об ошибке (временное всплытие вы уже использовали букву, далее сколько прав на ошибку есть)</div>
+                <div>В конце результат (вы проиграли/выиграли)</div>
+            </div>
+            <div class="game__keyboard"></div> <!-- подрузка через JS -->
+            <button type="button" class="button-reset" hidden>Новая игра</button>
+        </div>
+    </div>
     <script src="/dist/game.bundle.js"></script>
 </body>
 
