@@ -209,6 +209,7 @@ function movementUp(outputLetter, source) {
             }
         }
     }
+    console.log(outLet, outputLetter, currentLetter);
     currentLetter = null;
     inputSource = null;
     if (source === 'keydown') {
@@ -229,14 +230,15 @@ const keydown = (e) => {
         return;
     }
 
-    if (outLet.has(inputLetter)) return;
+    if (outLet.size !== 0) return;
     outLet.add(inputLetter);
-
+    console.log(1, outLet);
     movementDown(inputLetter, 'keydown');
 };
 
 const keyup = (e) => {
     const outputLetter = e.key.toUpperCase();
+    if (!outLet.has(outputLetter)) return;
     outLet.delete(outputLetter);
     movementUp(outputLetter, 'keydown');
 }
@@ -338,3 +340,6 @@ newGameBtn.addEventListener('click', () => {
     resetData();
     newGameBtn.hidden = !newGameBtn.hidden;
 })
+
+/* БАГ: нажал на одну букву, нажал на вторую отпустил вторую, отпустил первую, 
+первая защиталась как выбранная но никуда не добавилась (на клавиатуре) */
