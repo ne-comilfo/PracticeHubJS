@@ -1,7 +1,7 @@
 .content {
     flex: 1;
     display: flex;
-    align-items: center;
+    margin-top: 160px;
     justify-content: center;
 }
 
@@ -39,6 +39,7 @@ a {
 
 .carousel-wrapper {
     overflow: hidden;
+    position: relative;
 }
 
 .carousel-inner {
