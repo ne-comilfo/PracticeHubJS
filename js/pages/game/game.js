@@ -72,9 +72,11 @@ function isWordComplete(inputsForLetters) {
     return [...inputsForLetters].every(item => item.textContent != '');
 }
 
-function generateWord() {
-    const rand = Math.random();
-    hiddenWord = rand < 0.5 ? 'Банан' : 'Сигмабой';
+async function generateWord() {
+    const index = Math.floor(Math.random() * 1613);
+    const res = await fetch('/words.json');
+    const data = await res.json();
+    hiddenWord = data[index];
     const numLet = [];
     for (let i = 0; i < hiddenWord.length; i++) {
         numLet.push('<div class="game__word-letter"></div>');
@@ -174,6 +176,11 @@ function movementUp(outputLetter, source) {
                 updateMessage();
                 if (leftAttempt === 0) {
                     message.innerHTML = 'Вы проиграли :(';
+                    const inputsForLetters = document.querySelectorAll('.game__word-letter');
+                    hiddenWord.toUpperCase().split("").forEach((item, i) => {
+                        inputsForLetters[i].textContent = item;
+                        inputsForLetters[i].classList.add('mistake');
+                    })
                     newGameBtn.hidden = !newGameBtn.hidden;
                     removeListener('mousedown', mousedown);
                     removeListener('keydown', keydown);
@@ -195,6 +202,9 @@ function movementUp(outputLetter, source) {
                     removeListener('mousedown', mousedown);
                     removeListener('keydown', keydown);
                     newGameBtn.hidden = !newGameBtn.hidden;
+                    hiddenWord.toUpperCase().split("").forEach((item, i) => {
+                        inputsForLetters[i].classList.add('correct');
+                    })
                 }
             }
         }
@@ -244,7 +254,11 @@ const mouseup = (e) => {
     if (target && target.hasAttribute('data-letter')) {
         const outputLetter = target.getAttribute('data-letter');
         if (outputLetter !== currentLetter) {
-            document.querySelector(`[data-letter=${currentLetter}]`).classList.remove('choose');
+            try {
+                document.querySelector(`[data-letter=${currentLetter}]`).classList.remove('choose');
+            } catch {
+
+            }
             choosenLetters.splice(choosenLetters.indexOf(currentLetter), 1);
             currentLetter = null;
             inputSource = null;

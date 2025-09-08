@@ -14,7 +14,7 @@ const sliderWrapper = document.querySelector('.carousel-wrapper'),
 let imgs = [];
 
 async function loadCarouselItem() {
-    const res = await fetch('../home-page-info.json');
+    const res = await fetch('/home-page-info.json');
     const cards = await res.json();
     cards.forEach(item => {
         const carousel = document.createElement('div');
