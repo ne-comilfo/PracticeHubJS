@@ -141,7 +141,7 @@ function movementDown(inputLetter, source) {
             canPress = true;
         }, 500);
 
-    } else {
+    } else if (/^[A-Z]$/.test(inputLetter.toLowerCase)) {
         message.innerHTML = '<b>Переключите раскладку!</b>';
         setTimeout(updateMessage, 1500);
 
@@ -209,7 +209,7 @@ function movementUp(outputLetter, source) {
             }
         }
     }
-    console.log(outLet, outputLetter, currentLetter);
+
     currentLetter = null;
     inputSource = null;
     if (source === 'keydown') {
@@ -224,7 +224,7 @@ function movementUp(outputLetter, source) {
 
 const keydown = (e) => {
     const inputLetter = e.key.toUpperCase();
-    if (!/[А-Я]/.test(inputLetter)) {
+    if (/^[A-Z]$/.test(inputLetter)) {
         message.innerHTML = '<b>Переключите раскладку!</b>';
         setTimeout(updateMessage, 1500);
         return;
@@ -232,7 +232,6 @@ const keydown = (e) => {
 
     if (outLet.size !== 0) return;
     outLet.add(inputLetter);
-    console.log(1, outLet);
     movementDown(inputLetter, 'keydown');
 };
 
