@@ -15,8 +15,9 @@ const alphabet = 'йцукенгшщзхъфывапролджэячсмитьб
 
 const gameDisplay = document.querySelector('.game__display');
 
-let choosenLetters = [],
-    leftAttempt = 8;
+let leftAttempt = 8;
+
+const choosenLetters = [];
 
 let hiddenWord = '',
     letterIndexinWord = [];
@@ -67,20 +68,6 @@ let inputSource = null;
 let prevMessage = '';
 let wasChoosen = false;
 
-function showStartBtn() {
-    gameDisplay.style.display = 'none';
-    const content = document.querySelector('.content');
-    content.insertAdjacentHTML('beforeend', '<button type="button" class="start-btn">Начать игру</button>');
-    const startBtn = document.querySelector('.start-btn');
-    startBtn.addEventListener('click', (e) => {
-        generateWord();
-        startBtn.remove();
-        gameDisplay.removeAttribute('style');
-    })
-}
-
-showStartBtn();
-
 function isWordComplete(inputsForLetters) {
     return [...inputsForLetters].every(item => item.textContent != '');
 }
@@ -106,7 +93,7 @@ function resetData() {
     inputSource = null;
     prevMessage = '';
     wasChoosen = false;
-    choosenLetters = [];
+    choosenLetters.splice(0, choosenLetters.length);
     leftAttempt = 8;
     hiddenWord = '';
     letterIndexinWord = [];
@@ -119,14 +106,19 @@ function resetData() {
 }
 
 function movementDown(inputLetter, source) {
-    console.log('1', source, inputSource, inputLetter);
+    if (source === 'keydown') {
+        document.removeEventListener('mousedown', mousedown);
+        document.removeEventListener('mouseup', mouseup);
+    } else {
+        document.removeEventListener('keydown', keydown);
+        document.removeEventListener('keyup', keyup);
+    }
+
     if (/[А-Я]/.test(inputLetter)) {
-        if (inputSource && inputSource !== source) return;
         if (source === 'keydown' && currentLetter && currentLetter !== inputLetter) return;
         canPress = false;
         currentLetter = inputLetter;
         inputSource = source;
-
         if (choosenLetters.includes(inputLetter)) {
             wasChoosen = true;
             message.innerHTML = '<b>Вы уже выбирали эту букву!</b>';
@@ -139,7 +131,7 @@ function movementDown(inputLetter, source) {
         choosenLetters.push(inputLetter);
 
         const letter = document.querySelector(`[data-letter=${inputLetter}]`);
-        if (letter) {
+        if (letter && !letter.classList.contains('choose') && !letter.classList.contains('correct') && !letter.classList.contains('mistake')) {
             letter.classList.add('choose');
         }
 
@@ -158,17 +150,21 @@ function movementDown(inputLetter, source) {
 }
 
 function movementUp(outputLetter, source) {
-    if (wasChoosen) {
-        wasChoosen = false
-        return;
-    };
-    console.log('2', outputLetter, currentLetter);
+
+    outLet.delete(outputLetter);
+
+    try {
+        const letter = document.querySelector(`[data-letter=${outputLetter}]`);
+        letter.classList.remove('choose');
+    } catch (err) {
+
+    }
+
     if (outputLetter === currentLetter) {
-        console.log('3', inputSource, source);
-        if (inputSource && inputSource === source) {
-            
+        if (wasChoosen) {
+            wasChoosen = false
+        } else {
             const letter = document.querySelector(`[data-letter=${outputLetter}]`);
-            if (!letter) return;
 
             const isCorrect = checkLetterInWord(hiddenWord, outputLetter);
             letter.classList.remove('choose');
@@ -179,8 +175,8 @@ function movementUp(outputLetter, source) {
                 if (leftAttempt === 0) {
                     message.innerHTML = 'Вы проиграли :(';
                     newGameBtn.hidden = !newGameBtn.hidden;
-                    removeListener('keydown', keydown);
                     removeListener('mousedown', mousedown);
+                    removeListener('keydown', keydown);
                     for (let i = 1; i < 4; i++) {
                         hangman[7][i].style.opacity = '0';
                     }
@@ -196,22 +192,26 @@ function movementUp(outputLetter, source) {
                 const isComplete = isWordComplete(inputsForLetters);
                 if (isComplete) {
                     message.innerHTML = 'Поздравляем, Вы выиграли!';
-                    removeListener('keydown', keydown);
                     removeListener('mousedown', mousedown);
+                    removeListener('keydown', keydown);
                     newGameBtn.hidden = !newGameBtn.hidden;
                 }
             }
-
-            currentLetter = null;
-            inputSource = null;
         }
-    } console.log('4', inputSource, currentLetter)
+    }
+    currentLetter = null;
+    inputSource = null;
+    if (source === 'keydown') {
+        document.addEventListener('mousedown', mousedown);
+        document.addEventListener('mouseup', mouseup);
+    } else {
+        document.addEventListener('keydown', keydown);
+        document.addEventListener('keyup', keyup);
+    }
+
 }
 
 const keydown = (e) => {
-    if (!canPress) return;
-    if (inputSource != null) return;
-    console.log(inputSource);
     const inputLetter = e.key.toUpperCase();
     if (!/[А-Я]/.test(inputLetter)) {
         message.innerHTML = '<b>Переключите раскладку!</b>';
@@ -225,13 +225,43 @@ const keydown = (e) => {
     movementDown(inputLetter, 'keydown');
 };
 
+const keyup = (e) => {
+    const outputLetter = e.key.toUpperCase();
+    outLet.delete(outputLetter);
+    movementUp(outputLetter, 'keydown');
+}
+
 const mousedown = (e) => {
-    if (inputSource != null) return;
-    console.log(inputSource)
     const target = e.target;
     if (target && target.hasAttribute('data-letter')) {
         const inputLetter = target.getAttribute('data-letter');
         movementDown(inputLetter, 'mousedown');
+    }
+}
+
+const mouseup = (e) => {
+    const target = e.target;
+    if (target && target.hasAttribute('data-letter')) {
+        const outputLetter = target.getAttribute('data-letter');
+        if (outputLetter !== currentLetter) {
+            document.querySelector(`[data-letter=${currentLetter}]`).classList.remove('choose');
+            choosenLetters.splice(choosenLetters.indexOf(currentLetter), 1);
+            currentLetter = null;
+            inputSource = null;
+            document.addEventListener('keydown', keydown);
+            document.addEventListener('keyup', keyup);
+        } else {
+            movementUp(currentLetter, 'mousedown');
+        }
+
+    } else {
+        const data = document.querySelector(`[data-letter=${currentLetter}]`);
+        if (data) data.classList.remove('choose');
+        choosenLetters.splice(choosenLetters.indexOf(currentLetter), 1);
+        currentLetter = null;
+        inputSource = null;
+        document.addEventListener('keydown', keydown);
+        document.addEventListener('keyup', keyup);
     }
 }
 
@@ -241,42 +271,56 @@ function removeListener(event, callback) {
 
 const outLet = new Set();
 
-document.addEventListener('keydown', keydown);
-
-document.addEventListener('keyup', (e) => {
-    if (inputSource !== 'keydown') return;
-    const outputLetter = e.key.toUpperCase();
-    outLet.delete(outputLetter);
-    movementUp(outputLetter, 'keydown');
-});
-
-document.addEventListener('mousedown', mousedown);
-
-document.addEventListener('mouseup', (e) => {
-    const target = e.target;
-    if (target && target.hasAttribute('data-letter')) {
-        const outputLetter = target.getAttribute('data-letter');
-        if (inputSource !== 'mousedown') return;
-        movementUp(outputLetter, 'mousedown');
-    } else {
-        const data = document.querySelector(`[data-letter=${currentLetter}]`);
-        if (data) data.classList.remove('choose');
-        choosenLetters = choosenLetters.filter(el => el !== currentLetter);
-        currentLetter = null;
+function forceReleaseKeyboard() {
+    if (currentLetter && inputSource === 'keydown') {
+        outLet.delete(currentLetter);
+        movementUp(currentLetter, 'keydown');
     }
+}
+
+window.addEventListener('blur', forceReleaseKeyboard);
+
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') forceReleaseKeyboard();
 });
+
+document.addEventListener('pointerdown', (e) => {
+    if (currentLetter && inputSource === 'keydown') {
+        movementUp(currentLetter, 'keydown');
+        currentLetter = null;
+        inputSource = null;
+    }
+}, true);
+
+
+document.addEventListener('keydown', keydown);
+document.addEventListener('keyup', keyup);
+document.addEventListener('mousedown', mousedown);
+document.addEventListener('mouseup', mouseup);
+
+function showStartBtn() {
+    gameDisplay.style.display = 'none';
+    removeListener('mousedown', mousedown);
+    removeListener('mouseup', mouseup);
+    removeListener('keydown', keydown);
+    removeListener('keyup', keyup);
+    const content = document.querySelector('.content');
+    content.insertAdjacentHTML('beforeend', '<button type="button" class="start-btn">Начать игру</button>');
+    const startBtn = document.querySelector('.start-btn');
+    startBtn.addEventListener('click', (e) => {
+        generateWord();
+        startBtn.remove();
+        gameDisplay.removeAttribute('style');
+        document.addEventListener('keydown', keydown);
+        document.addEventListener('keyup', keyup);
+        document.addEventListener('mousedown', mousedown);
+        document.addEventListener('mouseup', mouseup);
+    })
+}
+
+showStartBtn();
 
 newGameBtn.addEventListener('click', () => {
     resetData();
     newGameBtn.hidden = !newGameBtn.hidden;
 })
-
-/* 
-
-Написать получение библиотеки слов, желательно один раз и локал стораж запихнуть и оттуда брать
-
-В идеале отрефакторить ибо тут дохуя строк уже
-
-Пофиксить баг с последовательным нажатием / отжатием кнопки, заранее нажатой клавишей до старты игры 
-
-*/
