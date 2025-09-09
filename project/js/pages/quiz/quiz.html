@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="icon" href="../../../img/logo/лого_квиз.png" sizes='32x32' type="image/png">
+    <link rel="stylesheet" href="./quiz.css">
+    <link rel="stylesheet" href="../../../css/burger-menu-styles.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="carousel">
+            <div class="carousel-wrapper">
+                
+                <div class="carousel-inner__item active">
+                    <h3>Пройди тест на знание ...</h3>
+                </div>
+                
+                <div class="carousel-inner__item" data-number="1">
+                    <h3>Вопрос 1: Какой цвет тебе нравится?</h3>
+                    <label>
+                        <input type="radio" name="q1" value="Красный"> Красный <!-- checkbox - много -->
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="Синий"> Синий
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="Зелёный"> Зелёный
+                    </label>
+                </div>
+                <div class="carousel-inner__item" data-number="2">
+                    <h3>Вопрос 2: Какие фрукты тебе нравятся?</h3>
+                    <label>
+                        <input type="checkbox" name="q2" value="Яблоки"> Яблоки
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="q2" value="Бананы"> Бананы
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="q2" value="Апельсины"> Апельсины
+                    </label>
+                </div>
+                <div class="carousel-inner__item" data-number="3">
+                    <h3>Лучший футбольный клуб россии</h3>
+                    <input type='text' name="q3" placeholder="например: Барселона">
+                </div>
+                <div class="carousel-inner__item">
+                    See results
+                </div>
+                <div class="carousel-inner__item">
+                    Check fails if user have this, else skip
+                </div>
+                <button class="next">Далее</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../dist/quiz.bundle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./drag&drop.css">
+    <link rel="stylesheet" href="../../../css/burger-menu-styles.css">
+    <link rel="icon" href="../../../img/home/drag&drop.png" type="image/png" sizes="32x32">
+    <title>Drag & Drop</title>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Соберите свою корзину продуктов</h1>
+        <div class="shop">
+            <ul class="product__menu">
+                <li class="menu__product-item" data-number="1">
+                    <img src="../../../img/drag&drop/арбуз.png" alt="арбуз" height="100%" width="100%">
+                </li>
+                <li class="menu__product-item" data-number="2">
+                    <img src="../../../img/drag&drop/бананы.png" alt="бананы" height="100%" width="100%">
+                </li>
+                <li class="menu__product-item" data-number="3">
+                    <img src="../../../img/drag&drop/виноград.png" alt="виноград" height="100%" width="100%">
+                </li>
+                <li class="menu__product-item" data-number="4">
+                    <img src="../../../img/drag&drop/молоко.png" alt="молоко" height="100%" width="100%">
+                </li>
+                <li class="menu__product-item" data-number="5">
+                    <img src="../../../img/drag&drop/хлеб.png" alt="хлеб" height="100%" width="100%">
+                </li>
+            </ul>
+
+            <div class="basket">
+                <img src="../../../img/drag&drop/корзинка.png" alt="корзинка" height="100%" width="100%">
+            </div>
+
+        </div>
+        <div class="buttons">
+            <button type="button" class="btn-undo">Отменить действие</button>
+            <button type="button" class="btn-reset">Очистить корзину</button>
+        </div>
+
+    </div>
+    <script src="../../../dist/dragdrop.bundle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    margin-top: 80px;
+    min-height: 80vh;
+}
+
+button {
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 30px;
+    width: 100px;
+    border: 0.1px black solid;
+    border-radius: 5px;
+    background-color: antiquewhite;
+}
+
+h1 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    /* по горизонтали */
+    align-items: center;
+    /* по вертикали */
+    margin: 0;
+}
+
+
+.carousel-wrapper {
+    width: 705px;
+    position: relative;
+}
+
+.carousel-wrapper button.next {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    z-index: 10;
+}
+
+.active {
+    display: block;
+}
+
+.inactive {
+    display: none;
+}
+h3 {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.carousel-inner__item {
+    width: 700px;
+    height: 400px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    display: none;
+    align-items: left;
+    justify-content: start;
+    padding-left: 50px;
+}
+
+input[name='q3'] {
+    width: 300px;
+    height: 30px;
+}
+
+label {
+    display: block;
+    position: relative;
+    padding-left: 25px; /* место под чекбокс */
+}
+
+label input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.carousel-inner__item.active {
+    display: flex;
+    flex-direction: column;
+}

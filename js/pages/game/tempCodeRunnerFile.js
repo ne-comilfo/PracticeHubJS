@@ -1,1 +1,0 @@
-console.log(/^[A-Z]$/.test('Tab'))
