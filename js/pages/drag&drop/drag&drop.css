@@ -1,7 +1,3 @@
-body {
-
-}
-
 .content {
     display: flex;
     flex-direction: column;
@@ -9,7 +5,7 @@ body {
     margin-top: 160px;
 }
 
-ul {
+ul, li {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -41,12 +37,24 @@ img {
     height: 100px;
     width: 100px;
     cursor: pointer;
+    z-index: 15;
 }
 
 .basket {
     height: 300px;
     width: 300px;
     cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+.basket img, 
+.basket .menu__product-item { 
+  position: absolute;
+}
+
+.basket .menu__product-item {
+    bottom: 0;
 }
 
 .buttons {
