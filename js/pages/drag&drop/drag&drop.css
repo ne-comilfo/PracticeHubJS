@@ -67,3 +67,7 @@ button {
     box-sizing: border-box;
     font-size: 14px;
 }
+
+.btn-undo {
+    visibility: hidden; /* скрыто пока первое действие не появится */
+}

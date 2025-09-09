@@ -129,8 +129,10 @@
     width: 100px;
 }
 
-svg {
-    transition: all 0.3s;
+#hangman line,
+#hangman rest,
+#hangman circle {
+    transition: opacity 0.3s ease;
 }
 
 .no-select {
