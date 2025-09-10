@@ -43,6 +43,8 @@ img {
 .basket {
     height: 300px;
     width: 300px;
+    min-width: 300px;
+    min-height: 300px;
     cursor: pointer;
     position: relative;
     z-index: 10;
