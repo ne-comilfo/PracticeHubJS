@@ -29,8 +29,8 @@ npx webpack
 
 Running the Full Project (Not Recommended)
 
-The full project is large in size and may take longer to load.
-If you want to run it, execute the following commands from the root folder:
+The full project is large in size and may take longer to load.<br>
+If you want to run it, execute the following commands from the root folder:<br>
 
 ```bash
 json-server project/db.json
@@ -39,6 +39,6 @@ npx webpack --config project/webpack.config.js
 
 Summary
 
-Focus: HTML, CSS, native JS practice      
-Features: Event handling, responsive layout
-Recommended: Run the lightweight version to avoid heavy load
+Focus: HTML, CSS, native JS practice<br>
+Features: Event handling, responsive layout<br>
+Recommended: Run the lightweight version to avoid heavy load<br>
