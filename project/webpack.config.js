@@ -1,6 +1,12 @@
 'use strict';
 
 const path = require('path');
+const fs = require('fs');
+
+const projectFolder = path.resolve(__dirname, 'project');
+const distFolder = fs.existsSync(projectFolder) 
+    ? path.resolve(projectFolder, 'dist')  
+    : path.resolve(__dirname, 'dist');
 
 module.exports = {
   mode: 'development',
@@ -20,7 +26,7 @@ module.exports = {
 
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'project', 'dist'),
+    path: distFolder,
     clean: true, // очищает dist перед каждой сборкой
   },
 
