@@ -27,7 +27,7 @@ json-server db.json
 npx webpack
 ```
 
-Running the Full Project (Not Recommended)
+## Running the Full Project (Not Recommended)
 
 The full project is large in size and may take longer to load.<br>
 If you want to run it, execute the following commands from the root folder:<br>
@@ -37,8 +37,8 @@ json-server project/db.json
 npx webpack --config project/webpack.config.js
 ```
 
-Summary
+## Summary
 
-Focus: HTML, CSS, native JS practice<br>
-Features: Event handling, responsive layout<br>
-Recommended: Run the lightweight version to avoid heavy load<br>
+1. Focus: HTML, CSS, native JS practice<br>
+2. Features: Event handling, responsive layout<br>
+3. Recommended: Run the lightweight version to avoid heavy load<br>
