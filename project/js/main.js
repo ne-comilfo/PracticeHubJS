@@ -6,7 +6,6 @@ const currentPage = document.querySelector('.number-page'),
     totalPages = document.querySelector('.total-page');
 
 const sliderWrapper = document.querySelector('.carousel-wrapper'),
-    slider = document.querySelector('.carousel'),
     sliderInner = document.querySelector('.carousel-inner'),
     leftArrow = document.querySelector('.fa-solid.fa-arrow-left'),
     rightArrow = document.querySelector('.fa-solid.fa-arrow-right');
@@ -36,14 +35,6 @@ loadCarouselItem();
 
 function initCarousel() {
     totalPages.textContent = imgs.length;
-    
-
-    sliderWrapper.style.width = '550px';
-    imgs.forEach(item => {
-        item.style.width = '550px';
-    })
-
-    slider.style.position = 'relative';
 
     const dots = document.createElement('ol');
     dots.classList.add('carousel-indicators');

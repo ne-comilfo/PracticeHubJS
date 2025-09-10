@@ -1,7 +1,7 @@
 .content {
     flex: 1;
     display: flex;
-    margin-top: 160px;
+    margin-top: clamp(120px, 19.25vh, 180px);
     justify-content: center;
 }
 
@@ -40,6 +40,7 @@ a {
 .carousel-wrapper {
     overflow: hidden;
     position: relative;
+    width: clamp(485px, 37.41vw, 550px);
 }
 
 .carousel-inner {
@@ -65,7 +66,9 @@ a {
 }
 
 .carousel-item img {
-    height: 375px;
+    width: clamp(485px, 37.41vw, 550px);
+    height: clamp(325px, 45.13vh, 375px);
+    max-height: 375px;
     border-radius: 5px;
 }
 
@@ -91,7 +94,7 @@ a {
     margin-bottom: 85px;
     margin-right: 40px;
 }
-
+ 
 .dot {
     box-sizing: content-box;
     flex: 0 1 auto;

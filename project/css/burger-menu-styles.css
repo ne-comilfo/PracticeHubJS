@@ -16,7 +16,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: 9.63vh;
+    min-height: 55px;
+    max-height: 80px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
     position: fixed;
     background-color: antiquewhite;
@@ -58,7 +60,7 @@ a {
     height: 3px;
     background-color: black;
     display: block;
-    width: 30px;
+    width: 100%;
     margin: 3px;
 }
 
@@ -101,11 +103,11 @@ a {
     color: black;
     cursor: pointer;
     margin-left: 20px;
-    width: 180px;
+    width: 95%;
     height: 30px;
     border-radius: 5px;
 }
-
+ 
 .menu a:hover {
     box-sizing: border-box;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);

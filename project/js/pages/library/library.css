@@ -10,11 +10,10 @@ html {
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-height: calc(100vh - 80px);
+    margin-top: clamp(120px, 19.25vh, 180px);
 }
-
+ 
 .library-field {
-    margin-top: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
